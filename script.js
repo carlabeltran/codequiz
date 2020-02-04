@@ -33,13 +33,8 @@ console.log("question element is working");
 /////////////////////   TIMER   ///////////////////////////////////////
 
 var timerEl = document.getElementById("ss");
-
-var secondsLeft = 75;
-var totalSeconds = 0;
-var secondsElapsed = 0;
-var timerStatus;
-var interval;
-var timerWarning = 10;
+var totalTime = 0;
+var timerinterval;
 
 /////////////////////////////////////////////////////////////////////////
 
@@ -98,36 +93,33 @@ function startQuiz() {
     document.getElementById("question").style.display = "block";
     console.log("display question working");
 
-    //SET TIMER FUNCTION
-    
+    //START TIMER FUNCTION
+    setTime();
+
     //LOAD QUESTIONS AND CHOICES FUNCTION
 
-    setTime = setInterval(setTimer, 1000);
-
-}
-///////////////  TIMER FUNCTION  /////////////////////////////////////
-function setTimer() {
-    var timerInterval = setInterval(function () {
-        secondsLeft--;
-        timerEl.textContent = secondsLeft;
-        if (secondsLeft == -1) {
-            clearInterval(timerInterval);
-            timeEl.textContent = " Time is up! ";
-            quizOver();
-        } else if (secondsLeft === 10) {
-            timerWarning();
-        }
-
-    }, 1000);
-}
-
-//add animation to seconds
-function timerWarning() {
     
+    
+    setTime = timerInterval(setTime, 1000);
+    //setTime = setInterval(setTime, 1000);
+
 }
+///////////////  TIMER FUNCTION  ///////////////////////////
+function setTime() {
+    
+    var secondsLeft = 75;
+    var timerInterval = setInterval(function () {
+        
+        secondsLeft -= 1;
+        
+        timerEl.textContent = secondsLeft;
 
-function quizOver() {
+        if (secondsLeft <= 0) {
+        
+            clearInterval(timerInterval);
+        
+        } 
+    
+    }, 1000);
 
-}
-
-setTime();
+};
