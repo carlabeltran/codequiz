@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- META TAGS -->
+    <meta charset="UTF-8">
+    <meta name="description" content="code quiz" />
+    <meta name="author" content="carla beltran" />
+    <meta http-equiv="X-UA-Compatible" content="ie=Edge" />
+
+    <!-- RESPONSIVE -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- BROWSER TAB TITLE -->
+    <title>Code Quiz</title>
+
+    <!-- CSS LINK-->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- GOOGLE FONTS LINK-->
+    <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree&display=swap" rel="stylesheet">
+
+    <!-- BOOTSTRAP LINK-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<!---------------- BODY ------------------------------------------->
+<body>
+
+    <!------------- HEADER ------------------------->
+    <header>
+
+        <!------------- NAV ------------------------->
+        <nav class="navbar navbar-light bg-light">
+
+            <!-------- VEIW HIGHSCORE ------->
+            <a class="navbar-brand" href="#" style="color:#e73c7e">View Highscore</a>
+
+            <!-- NAVBAR TEXT -->
+            <span class="navbar-text">
+
+<!-------------------- TIMER ------------------->
+
+                <!-- TIMER CONTAINER -->
+                <div class="fixed-container" id="timer">
+
+                    <div class="square">
+
+                        <div id="smalltext">Seconds</div>
+
+                        <span class="secondsTimer" id="ss"></span>
+
+                    </div>
+
+
+                </div>
+
+            </span>
+
+        </nav>
+    <!-- ./ NAV-->
+
+    </header>
+<!-- ./ HEADER -->
+
+<!------------------- MAIN CONTAINER -------------------------------->
+
+    <main class="container-fluid">
+
+        <!-- BACKGROUND -->
+        <div class="demo" id="demo">
+
+<!------- DIRECTIONS CONTAINER SECTION 1 OF 3 ---------------------->
+
+            <div class="directionsPage" id="page0">
+
+                <!-- TITLE -->
+                <div class="title">Code Quiz</div>
+
+                <!-- ROW -->
+                <div class="row">
+
+                    <!-- COLUMN -->
+                    <div class="col-md-12 d-flex justify-content flex-wrap align-items-center pt-3 pb-2 mb-3">
+
+                        <!-- PARAGRAPH -->
+                        <p id="instructions">Try to answer the following 10 javascript code related questions within the
+                        30 seconds time limit. Keep in mind that incorrect answers will penalize your score and
+                        time by 10 seconds!</p>
+
+                    </div>
+                    <!-- ./ COLUMN -->
+                
+                </div>
+                <!-- ./ ROW -->
+                
+                <!-- ROW -->
+                <div class="row">
+
+                    <!-- COLUMN -->
+                    <div class="col-md-12 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
+
+                        <!-- START QUIZ BUTTON -->
+                        <button type="button" class="btn right" id="start-button" click="start-button">Start Quiz</button>
+
+                    </div>
+                    <!-- ./COLUMN -->
+
+                </div>
+                <!-- ./ ROW -->
+
+            </div>
+            <!-- ./ DIRECTIONS  PAGE SECTION 1 OF 3 -->
+
+<!------------ QUIZ CONTAINER SECTION 2 OF 3 --------------------------->
+
+            <div class="quizPage" id="page1">
+                    
+<!------------- QUESTIONS & OPTIONS CONTAINER ----------------------->
+                <div class="container" id="questionOptionsContainer">
+                    
+                    <!-- ROW -->
+                    <div class="row">
+                            
+                        <!-- COLUMN -->
+                        <div class="col-md-12 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
+                                
+                            <!-- QUESTION CONTAINER -->
+                            <div class="questionWrapper" id="question-wrap">
+                                    
+                                <!-- QUESTION -->
+                                <h1 class="qindex" name="" id="question" value=" " style="color:#23a6d5"><strong>..</strong></h1>
+                                
+                            </div>
+                            <!-- ./ QUESTION CONTAINER -->
+
+                        </div>
+                        <!-- ./ COLUMN -->
+
+                    </div>
+                    <!-- ./ ROW-->
+
+<!------------  CHOICES CONTAINER ------------------------------------>
+                        
+                    <div class="container" id="optionsContainer">
+                                
+                        <!-- ROW -->
+                        <div class="row justify-content-center">
+                                
+                            <!-- COLUMN -->
+                            <div class="col-sm-9">
+                                    
+                                <!-- BUTTON GRID -->
+                                <div class="btn-grid" id="buttonGrid" name="" data-toggle="buttons">
+
+                                    <!-- ROW -->
+                                    <div class="row justify-content-center">
+
+<!-- BUTTON COLUMN 1  -->
+
+                                        <!-- COLUMN -->
+                                        <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
+
+                                            <!-- BUTTON 0 -->
+                                            <button type="button" name="" class="btn oquiz" value="oindex" id="btn0">..</button>
+
+                                        </div>
+                                        <!-- ./ COLUMN    -->
+
+<!-- BUTTON COLUMN 2  -->
+
+                                        <!-- COLUMN -->
+                                        <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
+                                                
+                                            <!-- BUTTON 1  -->
+                                            <button type="button" name="" class="btn oquiz" value="oindex" id="btn1">..</button>
+
+                                        </div>
+                                        <!-- ./ COLUMN -->
+
+                                        
+<!-- BUTTON COLUMN 3  -->               <div class="w-100"></div>
+
+                                        <!-- COLUMN -->
+                                        <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
+                                            
+                                            <!-- BUTTON 2 -->
+                                            <button type="button" name="" class="btn oquiz" value="oindex" id="btn2">..</button>
+
+                                        </div>
+                                        <!-- ./ COLUMN -->
+                                            
+<!-- BUTTON COLUMN 4  -->
+
+                                        <!-- COLUMN -->
+                                        <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
+
+                                            <!-- BUTTON 3 -->
+                                            <button type="button" name="" class="btn oquiz" value="oindex" id="btn3">..</button>
+
+                                        </div>
+                                        <!-- ./ COLUMN -->
+                                        
+                                    </div>
+                                    <!-- ./ ROW -->
+                                    
+                                </div>
+                                <!-- ./ BUTTON GRID -->
+                                
+                            </div>
+                            <!-- ./ OPTIONS COLUMN -->
+                        
+                        </div>
+                        <!-- ./ OPTIONS ROW -->
+
+                    </div>
+                    <!-- ./ OPTIONS CONTAINER -->
+
+                </div>
+                <!-- ./ QUESTION && OPTIONS CONTAINER -->
+
+                <!-- QUESTION OPTION VALIDATION FOOTER -->
+                <div class="question-footer" id="alert">
+
+                    <!-- ROW -->
+                    <div class="row">
+
+                        <!-- COLUMN -->
+                        <div class="col-md-12 justify-content-center flex-wrap pt-3 pb-2 mb-3">
+
+                            <div class="validity" id="validation"></div>
+
+                        </div>
+                        <!-- ./ COLUMN -->
+
+                    </div>
+                    <!-- ./ ROW -->
+
+                </div>
+                <!-- QUESTION FOOTER  -->
+
+            </div>
+            <!-- ./ QUIZ CONTAINER SECTION 2 OF 3  -->
+
+<!------------ RESULTS CONTAINER SECTION 3 OF 3 ---------------------->
+
+            <div class="resultsPage" id="page2">
+
+                <!-- ROW -->
+                <div class="row">
+
+                    <!-- COLUMN -->
+                    <div class="col-md-12 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
+
+                        <!-- RESULTS TITLE -->
+                        <h2>Results</h2>
+
+                    </div>
+                    <!-- ./ COLUMN -->
+
+                </div>
+                <!-- ./ ROW -->
+
+                <!-- ROW -->
+                <div class="row">
+                
+                    <!-- COLUMN -->
+                    <div class="col-md-12 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
+
+                        <!-- PARAGRAPH -->
+                        <p>You got <span id="numCorrectAnswers"></span> out of <span id="numQuestions"></span> questions correct!</p>
+
+                    </div>
+                    <!-- ./ COLUMN -->
+                
+                </div>
+                <!-- ./ ROW -->
+                
+                <!-- ROW -->
+                <div class="row justify-content-center">
+
+                    <!-- COLUMN -->
+                    <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
+
+                        <p>Enter initials:</p>
+
+                    </div>
+                    <!-- ./ COLUMN -->
+
+                    <!-- COLUMN -->
+                    <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
+                    
+                        <input type="text" id="initial-input"/>
+
+                    </div>
+                    <!-- ./ COLUMN -->
+
+                </div>
+                <!-- ./ ROW -->
+
+                <!-- ROW -->
+                <div class="row justify-content-center">
+                
+                    <!-- COLUMN -->
+                    <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
+
+                        <!-- SUBMIT HIGH SCORE BUTTON -->
+                        <button type="button" class="btn" id="submit-button" onclick="submitScore()">Submit</button>
+
+                    </div>
+                    <!-- ./ COLUMN -->
+
+                    <!-- COLUMN -->
+                    <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
+
+                        <!-- RESTART QUIZ BUTTON -->
+                        <button type="button" class="btn left" id="restart-button" onclick="newQuiz()">Restart
+                        </button>
+
+                    </div>
+                    <!-- ./ COLUMN -->
+                
+                </div>
+                <!-- ./ ROW -->
+
+            </div>
+            <!-- ./ RESULTS CONTAINER SECTION 3 OF 3 -->
+
+        </div>
+        <!-- ./ BACKGROUND -->
+
+    </main>
+<!-- ./ MAIN CONTAINER -->
+
+<!-- JAVASCRIPT QUESTIONS LINK -->
+<script type="text/javascript" src="questions.js"></script>
+
+<!-- JAVASCRIPT LINK -->
+<script type="text/javascript" src="script.js"></script>
+
+</body>
+
+</html>

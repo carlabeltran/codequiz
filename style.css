@@ -1,0 +1,330 @@
+/*********  GOOGLE FONTS *********/
+@import url('https://fonts.googleapis.com/css?family=Bai+Jamjuree&display=swap');
+
+/******* BODY  BACKGROUND **********/
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+*, 
+*:after, 
+*:before { 
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box; 
+    box-sizing: border-box; 
+}
+
+html,
+body, .container-fluid  { 
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/******** NAVBAR ******************************************/
+
+nav .navbar {
+  background-color: #fff;
+  width: 100%;
+  margin: auto;
+  padding: auto;
+  height: auto;
+}
+
+.navbar-brand {
+  color: #e73c7e;
+  font-family: 'Bai Jamjuree', sans-serif;
+}
+
+/******** TIMER ***********************************************/
+
+#timer {
+  position: relative;
+  top: 0;
+	background-color: #fff;
+  animation: spin 0.50s cubic-bezier(.15, .07, .20, .97) both;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  border: 0.09em solid #e73c7e;
+  border-radius: 4px;
+  align-content: center;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+}
+
+#smalltext {
+font-family: 'Bai Jamjuree', sans-serif;
+text-align: center;
+padding-top: 5px;
+padding-bottom: 5px;
+font-weight: bold;
+color: #e73c7e;
+padding-left: 10px;
+padding-right: 10px;
+}
+
+#ss {
+  font-size: 22px;
+  color: #e73c7e;
+  font-weight: bold;
+  font-family: 'Bai Jamjuree', sans-serif;
+  padding-left: 30px;
+  padding-right: 10px;
+}
+
+/******** MAIN CONTAINER *******************************************/
+
+.container-fluid .demo {
+    padding: 0 auto;
+    margin: 0 auto;
+    width: 100%; 
+    height: auto;
+}
+
+/****** DIRECTIONS PAGE SECTION 1 OF 3 *************************/
+
+#page0 {
+    display: block;
+}
+
+/**** CODE QUIZ TITLE  ****/
+
+.title {
+  font-size: 150px;
+  align-content: center;
+  color: white;
+  font-family: 'Bai Jamjuree', sans-serif;
+  margin: auto;
+  text-align: center;
+  padding-top: 100px;
+  max-width: 960px;
+}
+
+/*** INSTRUCTIONS FOR CODE QUIZ GAME  ****/
+
+p {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  width: 960px;
+  place-content: center;
+  margin: auto;
+  font-family: 'Bai Jamjuree', sans-serif;
+  letter-spacing: 0.03em;
+}
+
+/* START BUTTON */
+
+#start-button {
+  border: 4px solid #fff;
+	background-color: #fff;
+	border-radius: 25px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
+	color: #e73c7e;
+	font-size: 30px;
+	line-height: 22px;
+	text-align: center;
+	cursor: pointer;
+  align-content: center;
+  padding: 20px 34px;
+  font-family: 'Bai Jamjuree', sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+}
+
+.right {
+    float: right;
+}
+
+/************ QUIZ SECTION 2 OF 3 *******************************/
+
+#page1 {
+  display: none;
+}
+
+.quizPage{
+  background-color: #fff;
+  margin: 150px 50px 50px 50px;
+  padding: 50px 50px 50px 50px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  border: 2px solid #23d5ab;
+}
+
+/******** QUESTION & OPTIONS CONTAINER **************************/
+
+#questionOptionsContainer {
+  background-color: #fff;
+  margin: 20px 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
+  display: none;
+}
+
+/* QUESTION CONTAINER */
+.questionWrapper {
+  background-color: white;
+  font-family: 'Bai Jamjuree', sans-serif;
+  display: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* QUESTION (H1) */
+#question {
+  font-family: 'Bai Jamjuree', sans-serif;
+  word-wrap: break-word;
+  background-color: #fff;
+  font-weight: bolder;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+/*********** OPTIONS CONTAINER  **************************************/
+
+#optionsContainer{
+  background-color: #fff;
+}
+
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px;
+  background-color: #fff;
+}
+
+#btn0, #btn1, #btn2, #btn3 {
+  font-family: 'Bai Jamjuree', sans-serif;
+  background-color:  #fff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
+  color: #23a6d5;
+  letter-spacing: 0.03em;
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 14px 34px;
+  text-align: center;
+  font-weight: bold;
+  border: 3px solid #23a6d5;
+  width: 250px;
+  height: 100px;
+  align-items: center;
+}
+
+#btn0:hover, #btn1:hover, #btn2:hover, #btn3:hover {
+  cursor: pointer;
+}
+
+#btn0:focus, #btn1:focus, #btn2:focus, #btn3:focus {
+  outline: 0;
+}
+
+.incorrect {
+  background-color: red;
+
+}
+
+.correct {
+background-color: seagreen;
+}
+
+/********** QUESTION OPTIONS VALIDATION FOOTER   **************************/
+
+.container-footer {
+  animation: slide_down_and_fade 0.50s cubic-bezier(.15, .07, .20, .97)both;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  border: 0.09em solid #e73c7e;
+  border-radius: 4px;
+  align-content: center;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  margin: 0 auto;
+	max-width: 250px;
+  padding: 0 auto;
+  border-width: 2px;
+}
+
+.left {
+  float: left;
+}
+
+/******************* RESULTS SECTION 3 OF 3 ***************************/
+
+#page2 {
+  display: none;
+}
+
+#submit-button {
+
+}
+
+
+/********** ANIMATIONS ***********/
+@keyframes slide_down_and_fade {
+    0% {
+        opacity  : 1;
+    }
+
+    100% {
+        opacity  : 0;
+        transform: translate(0, 15px);
+    }
+}
+
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+    }
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate(-1px, -2px);
+    }
+    
+    20%, 80% {
+        transform: translate(2px, 4px);
+    }
+    
+    30%, 50%, 70% {
+        transform: translate(0, -6px);
+    }
+    
+    40%, 60% {
+        transform: translate(-1px, 6px);
+    }
+}
+
+@media all and (max-width: 980px), all and (max-device-width: 980px) {
+    .container {
+        width  : 90%;
+        padding: 5% 0;
+    }
+
+    body {
+        font-size: 4vw;
+    }
+}
