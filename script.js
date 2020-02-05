@@ -1,107 +1,112 @@
-/////////////////////// DOM ELEMENTS //////////////////////////////
+////////////////////////////////////////////////////////     DOM ELEMENTS
 
-////////////  DIRECTION CONTAINER (SECTION 1 OF 3)  //////////////
-
+//////////////////DIRECTIONS CONTAINER (SECTION 1 OF 3)////////////////////
 //START BUTTON
 var startButton = document.getElementById("start-button");
-console.log("start button element is working!");
 
-/////////////// QUIZ CONTAINER (SECTION 2 OF 3) ///////////////////
-
-//QUIZ SECTION (DIV)
+//////////////////QUIZ CONTAINER (SECTION 2 OF 3)//////////////////////////
+//QUIZ CONTAINER
 var quizEL = document.getElementById("page1");
-console.log("quiz page element is working!");
 
-//QUESTIONS & OPTIONS CONTAINER (DIV)
-var quizContainerEL = document.getElementById("quizContainer");
-console.log("quiz container is working!");
+//QUESTIONS & OPTIONS CONTAINER 
+var quizContainerEL = document.getElementById("questionOptionsContainer");
 
-//QUESTION CONTAINER (DIV)
+//CURRENT QUESTION NUMBER
+var questionNumberEl = document.getElementsByClassName("questionNumber");
+
+//TOTAL NUMBER OF QUESTIONS
+var totalQuestionsEl = document.getElementsByClassName("totalQuestions")
+
+//QUESTION CONTAINER
 var questionWrapper = document.getElementById("question-wrap");
-console.log("question wrapper element is working!");
 
 //QUESTION (H1)
 var questionEl = document.getElementById("question");
-console.log("question element is working");
 
-//CHOICES CONTAINER
+//OPTIONS CONTAINER
+var optionsContainerEl = document.getElementById("optionsContainer")
 
+//ALL OPTIONS
+var optionsEl = document.getElementsByClassName("optionTxt")
+
+//OPTION 1
+var option1 = document.getElementById("btn0");
+
+//OPTION 2
+var option2 = document.getElementById("btn1");
+
+//OPTION 3
+var option3 = document.getElementById("btn2");
+
+//OPTION 4
+var option4 = document.getElementById("btn3");
 
 //QUESTION VALIDATION FOOTER
 
+var userAnswer;
 
-/////////////////////   TIMER   ///////////////////////////////////////
+var correctAnswer;
 
+//INITIALIZING RANDOM QUESTION
+//QUESTION INDEX = CURRENT QUESTION NUMBER IN RANDOM QUESTIONS FUNCTION 
+let randomQuestion, currentQuestionIndex;
+
+//QUESTION NUMBER THOURGH ARRAY
+var questionIndex;
+
+var index = 0;
+
+/////////////////////////////////////////////////////////////////    TIMER 
+
+//SECONDS
 var timerEl = document.getElementById("ss");
-var totalTime = 0;
+
 var timerinterval;
 
-/////////////////////////////////////////////////////////////////////////
+var timePenalty = -15;
 
-let answers, numberCorrectAnswers;
+//////////////////////////////////////////////////////////////     SCORE
 
-//INITIALIZING RANDOM QUESTION 
-//QUESTION INDEX = CURRENT QUESTION NUMBER IN RANDOM QUESTIONS FUNCTION 
-let randomQuestion, questionIndex;
+var score = 0;
 
-////////////////// WINDOW ON LOAD ///////////////////////////////////////
+var pointPenalty = -15;
+
+//////////////////////////////////////////////////////////   WINDOW ON LOAD
 window.onload = function () {
-    console.log("window on load working!");
     
     //DISPLAY ONLY DIRECTIONS DIVS (SECTION 1 OF 3)
     document.getElementById("page0").style.display = "block";
-    console.log("display directions page working!");
+    
+    //LOADS RANDOM QUESTIONS
+    randomQuestions();
+
 };
 
-//////////////  EVENT LISTENER FOR START BUTTON  ////////////////////////
+//////////////        EVENT LISTENER       ////////////////////////
 
 //START BUTTON EVENT LISTENER FOR START QUIZ FUNCTION
 startButton.addEventListener("click", startQuiz);
-console.log("start quiz event listener is working!");
 
-/////////////  START QUIZ FUNCTION  /////////////////////////////////////
+/////////////      START QUIZ FUNCTION         //////////////////////////
 function startQuiz() {
-    console.log("start quiz working!");
 
-    //HIDE ALL DIRECTIONS CONTAINER DIVS
+    //HIDES DIRECTIONS CONTAINER & ALL DIVS IN IT
     document.getElementById("page0").style.display = "none";
-    console.log("hide directions page working!");
 
-    //RANDOM QUESTIONS = RANDOM ARRAY TAKES CURRENT QUESTION ARRAY & SORTS IT.
-    //NEGITAVE NUMBER = SORTED A CERTAIN WAY.
-    //POSITIVE NUMBER = SORTED ANOTHER WAY.
-    //RANDOM NUMBER = BELOW 0 OR ABOVE 0 USE math.random() BETWEEN 1 - 0.
-    //SUBTRACT .5 PROVIDES A NUMBER >0 OR <0 CREATING A RANDOM ARRAY.
-    randomQuestion = questions.sort(() => Math.random() - .5);
-
-    //INDEX SET AT 0 TO BEGIN ON FIRST QUESTION IN RANDOM QUESTION ARRAY
-    currentQuestionIndex = 0;
-
-    //DISPLAY ALL QUIZ CONTAINER DIVS(SECTION 2 OF 3)
+    //DISPLAY QUIZ CONTAINER DIVS(SECTION 2 OF 3)
     document.getElementById("page1").style.display = "block";
-    console.log("display quiz page is working");
 
     //DISPLAY QUESTION & OPTIONS CONTAINER
     document.getElementById("questionOptionsContainer").style.display = "block";
-    console.log("display question option container is working!");
 
     //DISPLAY QUESTION CONTAINER
     document.getElementById("question-wrap").style.display = "block";
-    console.log("display question wrapper working");
 
     //DISPLAY QUESTION 
     document.getElementById("question").style.display = "block";
-    console.log("display question working");
 
     //START TIMER FUNCTION
     setTime();
-
-    //LOAD QUESTIONS AND CHOICES FUNCTION
-
-    
-    
-    setTime = timerInterval(setTime, 1000);
-    //setTime = setInterval(setTime, 1000);
 
 }
 ///////////////  TIMER FUNCTION  ///////////////////////////
@@ -123,3 +128,57 @@ function setTime() {
     }, 1000);
 
 };
+
+///////////  LOAD QUESTION NUMBER, QUESTIONS, OPTIONS   //////////////////
+
+//NUMBER OF QUESTIONS
+totalQuestionsEl.innerHTML = question.length;
+function load() {
+    
+    //
+    questionNumberEl.innerHTML = index +1;
+    
+    //
+    questionEl.innerHTML = questions[questionIndex].question;
+    
+    
+    //
+    option1.innerHTML = questions[questionIndex].options[0];
+    
+    //
+    option2.innerHTML = questions[questionIndex].options[1];
+
+    //
+    option3.innerHTML = questions[questionIndex].options[2];
+
+    //
+    option4.innerHTML = questions[questionIndex].options[3];
+
+
+    //INCREMENTS QUESTION
+    index++;
+
+}
+
+//RANDOM QUESTION FUNCTION
+function randomQuestions(){
+
+    //RANDOM QUESTION = RANDOM ARRAY TAKES QUESTION ARRAY & SORTS IT.
+    //NEGITAVE NUMBER = SORTED A CERTAIN WAY.
+    //POSITIVE NUMBER = SORTED ANOTHER WAY.
+    //RANDOM NUMBER = BELOW 0 OR ABOVE 0 USE math.random() BETWEEN 1 - 0.
+    //SUBTRACT .5 PROVIDES A NUMBER >0 OR <0 CREATING A RANDOM ARRAY.
+    randomQuestion = questions.sort(() => Math.random() - .5);
+
+    //QUESTION INDEX SET TO 0 INORDER TO BEGIN ON FIRST QUESTION IN RANDOM QUESTION ARRAY
+    currentQuestionIndex = 0;
+
+    questionIndex = currentQuestionIndex;
+    
+    //FUNCTION TO LOAD QUESTIONS,OPTIONS, AND QUESTIONS NUMBER
+    load();
+}
+
+function validation(question , answer){
+
+}

@@ -115,108 +115,115 @@
 
             <div class="quizPage" id="page1">
                     
-<!------------- QUESTIONS & OPTIONS CONTAINER ----------------------->
+<!-------- QUESTIONS & OPTIONS CONTAINER ---------->
                 <div class="container" id="questionOptionsContainer">
+                
+                    <!-- ROW -->
+                    <div class="row">
+            
+                        <!-- COLUMN -->
+                        <div class="col-md-12 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
+                        
+                            <!-- QUIZ HEADER -->
+                            <div class="quizHeader">
+
+                                <h3>Question <span class="questionNumber">1</span> of <span class="totalQuestions"></span> </h3>
+                    
+                            </div>
+                            <!-- ./ QUIZ HEADER -->
+                    
+                        </div>
+                        <!-- ./ COLUMN -->
+        
+                    </div>
+                    <!-- ./ ROW-->
                     
                     <!-- ROW -->
                     <div class="row">
-                            
+            
                         <!-- COLUMN -->
                         <div class="col-md-12 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
-                                
+            
                             <!-- QUESTION CONTAINER -->
                             <div class="questionWrapper" id="question-wrap">
-                                    
+            
                                 <!-- QUESTION -->
-                                <h1 class="qindex" name="" id="question" value=" " style="color:#23a6d5"><strong>..</strong></h1>
-                                
+                                <h1 class="question" id="question" style="color:#23a6d5"></h1>
+            
                             </div>
                             <!-- ./ QUESTION CONTAINER -->
-
+            
                         </div>
                         <!-- ./ COLUMN -->
-
+            
                     </div>
                     <!-- ./ ROW-->
-
-<!------------  CHOICES CONTAINER ------------------------------------>
-                        
+            
+<!-------  CHOICES CONTAINER  ---------------->
                     <div class="container" id="optionsContainer">
-                                
+            
                         <!-- ROW -->
                         <div class="row justify-content-center">
-                                
+            
                             <!-- COLUMN -->
                             <div class="col-sm-9">
-                                    
+            
                                 <!-- BUTTON GRID -->
-                                <div class="btn-grid" id="buttonGrid" name="" data-toggle="buttons">
-
+                                <div class="btn-grid" id="buttonGrid">
+            
                                     <!-- ROW -->
                                     <div class="row justify-content-center">
-
 <!-- BUTTON COLUMN 1  -->
-
                                         <!-- COLUMN -->
                                         <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
-
+            
                                             <!-- BUTTON 0 -->
-                                            <button type="button" name="" class="btn oquiz" value="oindex" id="btn0">..</button>
-
+                                            <div type="button" class="option.text" id="btn0" data-number="1" onclick="validation(this)">..</div>
+            
                                         </div>
                                         <!-- ./ COLUMN    -->
-
 <!-- BUTTON COLUMN 2  -->
-
                                         <!-- COLUMN -->
                                         <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
-                                                
+            
                                             <!-- BUTTON 1  -->
-                                            <button type="button" name="" class="btn oquiz" value="oindex" id="btn1">..</button>
-
+                                            <div type="button" class="option.text" id="btn1" onclick="validation(this)" data-number="2">..</div>
+            
                                         </div>
                                         <!-- ./ COLUMN -->
-
-                                        
 <!-- BUTTON COLUMN 3  -->               <div class="w-100"></div>
-
                                         <!-- COLUMN -->
                                         <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
-                                            
+            
                                             <!-- BUTTON 2 -->
-                                            <button type="button" name="" class="btn oquiz" value="oindex" id="btn2">..</button>
-
+                                            <div type="button" class="option.text" id="btn2" onclick="validation(this)" data-number="3">..</div>
+            
                                         </div>
                                         <!-- ./ COLUMN -->
-                                            
 <!-- BUTTON COLUMN 4  -->
-
                                         <!-- COLUMN -->
                                         <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
-
+            
                                             <!-- BUTTON 3 -->
-                                            <button type="button" name="" class="btn oquiz" value="oindex" id="btn3">..</button>
-
+                                            <div type="button" class="option.text" id="btn3" onclick="validation(this)" data-number="4">..</div>
+            
                                         </div>
                                         <!-- ./ COLUMN -->
-                                        
+            
                                     </div>
                                     <!-- ./ ROW -->
-                                    
+            
                                 </div>
                                 <!-- ./ BUTTON GRID -->
-                                
+            
                             </div>
                             <!-- ./ OPTIONS COLUMN -->
-                        
+            
                         </div>
                         <!-- ./ OPTIONS ROW -->
-
+            
                     </div>
-                    <!-- ./ OPTIONS CONTAINER -->
-
-                </div>
-                <!-- ./ QUESTION && OPTIONS CONTAINER -->
+                    <!-- ./ QUESTION && OPTIONS CONTAINER  -->
 
                 <!-- QUESTION OPTION VALIDATION FOOTER -->
                 <div class="question-footer" id="alert">
