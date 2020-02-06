@@ -122,12 +122,12 @@
                     <div class="row">
             
                         <!-- COLUMN -->
-                        <div class="col-md-12 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
+                        <div class="col-md-12 d-flex flex-wrap pt-3 pb-2 mb-3">
                         
                             <!-- QUIZ HEADER -->
                             <div class="quizHeader">
 
-                                <h3>Question <span class="questionNumber">1</span> of <span class="totalQuestions"></span> </h3>
+                                <h5 style="color: #e73c7e;">Question <span class="questionNumber" style="color: #e73c7e;"></span> of <span class="totalQuestions" style="color: #e73c7e;"></span> </h5>
                     
                             </div>
                             <!-- ./ QUIZ HEADER -->
@@ -160,91 +160,78 @@
                     <!-- ./ ROW-->
             
 <!-------  CHOICES CONTAINER  ---------------->
-                    <div class="container" id="optionsContainer">
+                    <div class="optionsContainer" id="optionsContainer">
             
                         <!-- ROW -->
                         <div class="row justify-content-center">
-            
-                            <!-- COLUMN -->
-                            <div class="col-sm-9">
-            
-                                <!-- BUTTON GRID -->
-                                <div class="btn-grid" id="buttonGrid">
-            
-                                    <!-- ROW -->
-                                    <div class="row justify-content-center">
 <!-- BUTTON COLUMN 1  -->
-                                        <!-- COLUMN -->
-                                        <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
+                            <!-- COLUMN -->
+                            <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
             
-                                            <!-- BUTTON 0 -->
-                                            <div type="button" class="option.text" id="btn0" data-number="1" onclick="validation(this)">..</div>
-            
-                                        </div>
-                                        <!-- ./ COLUMN    -->
-<!-- BUTTON COLUMN 2  -->
-                                        <!-- COLUMN -->
-                                        <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
-            
-                                            <!-- BUTTON 1  -->
-                                            <div type="button" class="option.text" id="btn1" onclick="validation(this)" data-number="2">..</div>
-            
-                                        </div>
-                                        <!-- ./ COLUMN -->
-<!-- BUTTON COLUMN 3  -->               <div class="w-100"></div>
-                                        <!-- COLUMN -->
-                                        <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
-            
-                                            <!-- BUTTON 2 -->
-                                            <div type="button" class="option.text" id="btn2" onclick="validation(this)" data-number="3">..</div>
-            
-                                        </div>
-                                        <!-- ./ COLUMN -->
-<!-- BUTTON COLUMN 4  -->
-                                        <!-- COLUMN -->
-                                        <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
-            
-                                            <!-- BUTTON 3 -->
-                                            <div type="button" class="option.text" id="btn3" onclick="validation(this)" data-number="4">..</div>
-            
-                                        </div>
-                                        <!-- ./ COLUMN -->
-            
-                                    </div>
-                                    <!-- ./ ROW -->
-            
-                                </div>
-                                <!-- ./ BUTTON GRID -->
+                                <!-- BUTTON 0 -->
+                                <div class="option0" id="0" onclick="questionVal(this)" data-type="1"></div>
             
                             </div>
-                            <!-- ./ OPTIONS COLUMN -->
+                            <!-- ./ COLUMN    -->
+<!-- BUTTON COLUMN 2  -->
+                            <!-- COLUMN -->
+                            <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
+            
+                                <!-- BUTTON 1  -->
+                                <div class="option1" id="1" onclick="questionVal(this)" data-type="2"></div>
+            
+                            </div>
+                            <!-- ./ COLUMN -->
+
+<!-- BUTTON COLUMN 3  -->   <div class="w-100"></div>
+                            
+                            <!-- COLUMN -->
+                            <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
+            
+                                <!-- BUTTON 2 -->
+                                <div class="option2" id="2" onclick="questionVal(this)" data-type="3"></div>
+            
+                            </div>
+                            <!-- ./ COLUMN -->
+<!-- BUTTON COLUMN 4  -->
+                            <!-- COLUMN -->
+                            <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
+            
+                                <!-- BUTTON 3 -->
+                                <div class="option3" id="3" onclick="questionVal(this)" data-type="4"></div>
+            
+                            </div>
+                            <!-- ./ COLUMN -->
             
                         </div>
                         <!-- ./ OPTIONS ROW -->
-            
+                    
                     </div>
                     <!-- ./ QUESTION && OPTIONS CONTAINER  -->
 
-                <!-- QUESTION OPTION VALIDATION FOOTER -->
-                <div class="question-footer" id="alert">
+                    <!-- QUESTION OPTION VALIDATION FOOTER -->
+                    <div class="question-footer" id="alert">
 
-                    <!-- ROW -->
-                    <div class="row">
+                        <!-- ROW -->
+                        <div class="row">
 
-                        <!-- COLUMN -->
-                        <div class="col-md-12 justify-content-center flex-wrap pt-3 pb-2 mb-3">
+                            <!-- COLUMN -->
+                            <div class="col-md-12 justify-content-center border-top flex-wrap pt-3 pb-2 mb-3">
 
-                            <div class="validity" id="validation"></div>
+                                <div class="questionVal" id="message"></div>
+
+                            </div>
+                            <!-- ./ COLUMN -->
 
                         </div>
-                        <!-- ./ COLUMN -->
+                        <!-- ./ ROW -->
 
                     </div>
-                    <!-- ./ ROW -->
+                    <!-- QUESTION FOOTER  -->
 
                 </div>
-                <!-- QUESTION FOOTER  -->
-
+                <!-- ./ QUESTIONS & OPTIONS CONTAINER -->
+                
             </div>
             <!-- ./ QUIZ CONTAINER SECTION 2 OF 3  -->
 
@@ -274,7 +261,7 @@
                     <div class="col-md-12 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
 
                         <!-- PARAGRAPH -->
-                        <p>You got <span id="numCorrectAnswers"></span> out of <span id="numQuestions"></span> questions correct!</p>
+                        <p>You got <span class="numCorrectAnswers"></span> out of <span class="numQuestions"></span> questions correct!</p>
 
                     </div>
                     <!-- ./ COLUMN -->
@@ -311,7 +298,7 @@
                     <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
 
                         <!-- SUBMIT HIGH SCORE BUTTON -->
-                        <button type="button" class="btn" id="submit-button" onclick="submitScore()">Submit</button>
+                        <button type="button" class="btn" id="submit-button" onclick="submitQuiz()">Submit</button>
 
                     </div>
                     <!-- ./ COLUMN -->

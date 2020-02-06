@@ -3,7 +3,7 @@
 var questions = [
     
     {
-    question : "Commonly used data types DO NOT include:",
+    q : "Commonly used data types DO NOT include:",
     
     options : [
         "strings",
@@ -18,7 +18,7 @@ var questions = [
     
     {
     
-    question : "The condition in an if / else statement is enclosed within ____.",
+    q : "The condition in an if / else statement is enclosed within ____.",
     
     options : [
         "quotes",
@@ -33,7 +33,7 @@ var questions = [
     
     {
     
-    question : "Inside which HTML element do we put the JavaScript?",
+    q : "Inside which HTML element do we put the JavaScript?",
     
     options : [
         "<js>",
@@ -48,7 +48,7 @@ var questions = [
     
     {
     
-    question : "Which event occurs when the user clicks on an HTML element?",
+    q : "Which event occurs when the user clicks on an HTML element?",
     
     options : [
         "onmouseclick",
@@ -63,7 +63,7 @@ var questions = [
     
     {
     
-    question : "How do you declare a Javascript variable?",
+    q : "How do you declare a Javascript variable?",
     
     options : [
         "variable carName",
@@ -78,7 +78,7 @@ var questions = [
     
     {
     
-    question : "How do you round the number 7.25, to the nearest integer?",
+    q : "How do you round the number 7.25, to the nearest integer?",
     
     options : [
         "Math.round(7.25)",
@@ -93,7 +93,7 @@ var questions = [
     
     {
     
-    question : "What does CSS stand for?",
+    q : "What does CSS stand for?",
     
     options: [
         "Computer Style Sheets",
@@ -108,7 +108,7 @@ var questions = [
     
     {
     
-    question : "Which HTML attribute is used to define inline styles?",
+    q : "Which HTML attribute is used to define inline styles?",
     
     options : [
         "class",
@@ -123,7 +123,7 @@ var questions = [
     
     {
     
-    question : "Which CSS property is used to change the text color of an element?",
+    q : "Which CSS property is used to change the text color of an element?",
     
     options : [
         "text-color",
@@ -138,7 +138,7 @@ var questions = [
     
     {
     
-    question : "Which CSS property controls the text size?",
+    q : "Which CSS property controls the text size?",
     
     options : [
         "font-style",

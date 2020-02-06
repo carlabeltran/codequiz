@@ -147,10 +147,6 @@ p {
   letter-spacing: 0.03em;
 }
 
-.right {
-    float: right;
-}
-
 /************ QUIZ SECTION 2 OF 3 *******************************/
 
 #page1 {
@@ -162,7 +158,7 @@ p {
   margin: 50px 50px 50px 50px;
   padding: 50px 50px 50px 50px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  border: 2px solid #23d5ab;
+  border: 5px solid #23d5ab;
 }
 
 /******** QUESTION & OPTIONS CONTAINER **************************/
@@ -193,50 +189,42 @@ p {
 
 /*********** OPTIONS CONTAINER  **************************************/
 
-#optionsContainer {
-  background-color: #fff;
-}
-
-.btn-group {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  gap: 10px;
-  background-color: #fff;
-}
-
-#btn0, #btn1, #btn2, #btn3 {
+.option0, .option1, .option2, .option3 {
   font-family: 'Bai Jamjuree', sans-serif;
   background-color:  #fff;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
   color: #23a6d5;
   letter-spacing: 0.03em;
-  font-size: 20px;
+  font-size: 25px;
   border-radius: 5px;
   padding: 14px 34px;
   text-align: center;
-  font-weight: bold;
+  font-weight: bolder;
   border: 3px solid #23a6d5;
   width: 250px;
   height: 100px;
   align-items: center;
 }
 
-#btn0:hover, #btn1:hover, #btn2:hover, #btn3:hover {
-  cursor: pointer;
+.option0, .option1, .option2, .option3 { 
+cursor: pointer; 
 }
 
-#btn0:focus, #btn1:focus, #btn2:focus, #btn3:focus {
+.option0, .option1, .option2, .option3 {
   outline: 0;
 }
 
+.correct{
+  background-color: #23d5ab;
+  color: #fff;
+  font-weight: bolder;
+}
+
 .incorrect {
-  background-color: red;
-
-}
-
-.correct {
-background-color: seagreen;
-}
+  background-color: #e73c7e;
+  color: #fff;
+  font-weight: bolder;
+} 
 
 /********** QUESTION OPTIONS VALIDATION FOOTER   **************************/
 
@@ -250,12 +238,7 @@ background-color: seagreen;
   padding-bottom: 0.25em;
   margin: 0 auto;
 	max-width: 250px;
-  padding: 0 auto;
-  border-width: 2px;
-}
-
-.left {
-  float: left;
+  border-width: 5px;
 }
 
 /******************* RESULTS SECTION 3 OF 3 ***************************/
@@ -264,10 +247,48 @@ background-color: seagreen;
   display: none;
 }
 
-#submit-button {
+.resultsPage {
+  background-color: #fff;
+  margin: 50px 50px 50px 50px;
+  padding: 50px 50px 50px 50px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  border: 5px solid #23d5ab;
 
 }
 
+#submit-button {
+  border: 4px solid #23a6d5;
+	background-color: #23a6d5;
+	border-radius: 25px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
+	color: #fff;
+	font-size: 30px;
+	line-height: 22px;
+	text-align: center;
+	cursor: pointer;
+  align-content: center;
+  padding: 20px 34px;
+  font-family: 'Bai Jamjuree', sans-serif;
+  font-weight: bolder;
+  letter-spacing: 0.03em;
+}
+
+#restart-button {
+  border: 4px solid #e73c7e;
+	background-color: #e73c7e;
+	border-radius: 25px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
+	color: #fff;
+	font-size: 30px;
+	line-height: 22px;
+	text-align: center;
+	cursor: pointer;
+  align-content: center;
+  padding: 20px 34px;
+  font-family: 'Bai Jamjuree', sans-serif;
+  font-weight: bolder;
+  letter-spacing: 0.03em;
+}
 
 /********** ANIMATIONS ***********/
 @keyframes slide_down_and_fade {
