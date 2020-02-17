@@ -1,22 +1,30 @@
+//TESTING IF JAVA AND HTML PAGE ARE LINKED PROPERLY 
+console.log("CODE QUIZ SCRIPT LINKED!!");
+
+
 ///////////////////////////////////////////////////////////////////////////
 //DOM ELEMENTS
-///////////////////////////////////////////////////////////////////////////
-
 //////////////////DIRECTIONS CONTAINER (SECTION 1 OF 3)////////////////////
-
 //START BUTTON
 var startButton = document.getElementById("start-button");
 
-//////////////////////////TIMER//////////////////////////////////////////// 
-
-//SECONDS
-var timerEl = document.getElementById("ss");
-
+///////////////////QUIZ CONTAINER (SECTION 2 OF 3)//////////////////////////
+//QUIZ VARIABLES
 var allowedTime;
-
 var secondsLeft = 75;
 
-///////////////////QUIZ CONTAINER (SECTION 2 OF 3)//////////////////////////
+//NUMBER OF EACH QUESTION IN THE QUESTIONS ARRAY(TOTAL QUESTIONS)
+var questionIndex;
+
+//CURRENT QUESTION NUMBER IN THE HEADER
+var index = 0;
+
+//INITIALIZING RANDOM QUESTIONS ESTABLLISH CURRENT QUESTION IN RANDOM QUESTIONS ARRAY(UNDEFIEND VALUE)REDEFINE LATER
+let randomQuestion, currentQuestionIndex;
+
+//////////////////////////TIMER////////////////////////////////////////////
+//SECONDS
+var timerEl = document.getElementById("ss");
 
 //QUIZ CONTAINER
 var quizEL = document.getElementById("page1");
@@ -25,264 +33,362 @@ var quizEL = document.getElementById("page1");
 var quizContainerEL = document.getElementById("questionOptionsContainer");
 
 //////////////////////////QUIZ HEADER///////////////////////////////////////
-
 //CURRENT QUESTION NUMBER
 var questionNumberEl = document.querySelector(".questionNumber");
 
 //TOTAL NUMBER OF QUESTIONS
 var totalQuestionsEl = document.querySelector(".totalQuestions");
 
-//NUMBER OF EACH QUESTION IN THE QUESTIONS ARRAY
-var questionIndex;
-
-//CURRENT QUESTION NUMBER IN THE HEADER 
-var index = 0;
-
-let randomQuestion,currentQuestionIndex;
 ////////////////////////QUESTION////////////////////////////////////////////
-
-//QUESTION CONTAINER
-var questionWrapper = document.getElementById("question-wrap");
-
 //QUESTION (<H1>)
-var questionEl = document.querySelector(".question");
+var questionEl = document.getElementById("question");
 
 ////////////////////////OPTIONS/////////////////////////////////////////////
-
-//OPTIONS CONTAINER
-var optionsContainerEl = document.getElementById("optionsContainer");
+//ALL THE OPTIONS CONTAINER & ALL OPTIONS
+var options = document.querySelector(".options").children;
 
 //OPTION 1
-var option1 = document.querySelector(".option0");
+var option1 = document.querySelector(".option1");
 
 //OPTION 2
-var option2 = document.querySelector(".option1");
+var option2 = document.querySelector(".option2");
 
 //OPTION 3
-var option3 = document.querySelector(".option2");
+var option3 = document.querySelector(".option3");
 
 //OPTION 4
-var option4 = document.querySelector(".option3");
+var option4 = document.querySelector(".option4");
 
 ////////////////////////QUIZ FOOTER/////////////////////////////////////////
-
 //QUESTION VALIDATION
 var message = document.querySelector(".questionVal");
 
 //////////////////////RESULTS CONTAINER (SECTION 3 OF 3)/////////////////////
-
 //RESULTS CONTAINER
 var resultsContainer = document.getElementById("page2");
 
 //SCORE
-var score = 100;
+var score = 75;
 
+// USER HIGH SCORE
 var highScore = 0;
 
-//POINTS/SCORE
-//var resultsContainer = document.getElementById("page2");
+//USER RESULTS CONTAINER
+var userResults = document.getElementById("userSelectedResults");
 
-//NUMBER OF CORRECT ANSWERS
-//var resultsContainer = document.getElementById("page2");
-
-//TOTAL NUMBER OF QUESTIONS 
-//var resultsContainer = document.getElementById("page2");
-
-//MESSAGE BASED ON THE NUMBER OF CORRECT ANSWERS
-
-//SUBMIT INITIALS BUTTON
-var submitButton = document.getElementById("submit-button");
+//SAVE INITIALS BUTTON
+var saveButton = document.getElementById("save-button");
 
 //RESTART QUIZ BUTTON
 var restartButton = document.getElementById("restart-button");
 
+///////////////////   HIGH SCORE PAGE CONTAINER   //////////////////////////
+//HIGH SCORE PAGE
+var highScoreEL = document.getElementById("page3");
+
+//HIGH SCORE LIST
+var highScoreListEL = document.querySelector(".highScoreList");
+
+//BACK BUTTON
+var returnButtonEl = document.getElementById("return-button");
+
+//CLEAR HIGH SCORE BUTTON
+var clearScoreButtonEl = document.getElementById("clearScoreButton");
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+
 ///////////////////////////////////////////////////////////////////////////
 //EVENT LISTENERS
 ///////////////////////////////////////////////////////////////////////////
-
-//START BUTTON EVENT LISTENER FOR START QUIZ FUNCTION
+//START BUTTON
 startButton.addEventListener("click", startQuiz);
-
-//SUBMIT BUTTON EVENT LISTENER FOR SUBMIT QUIZ SCORE FUNCTION
-//submitButton.addEventListener("click", submitQuiz);
-
-//RESTART BUTTON EVENT LISTENER FOR START NEW QUIZ FUNCTION
-//restartButton.addEventListener("click", newQuiz);
-
-//OPTION 1 EVENT LISTENER TO DISPLAY NEXT QUESTION FUNCTION
-//option1.addEventListener("click", nxtQuestion);
-
-//OPTION 2EVENT LISTENER TO DISPLAY NEXT QUESTION FUNCTION
-//option2.addEventListener("click", nxtQuestion);
-
-//OPTION 3 EVENT LISTENER TO DISPLAY NEXT QUESTION FUNCTION
-//option3.addEventListener("click", nxtQuestion);
-
-//OPTION 4 EVENT LISTENER TO DISPLAY NEXT QUESTION FUNCTION
-//option4.addEventListener("click", nxtQuestion);
-
+console.log(startButton);
 ///////////////////////////////////////////////////////////////////////////
-//RANDOM QUESTION FUNCTION
-///////////////////////////////////////////////////////////////////////////
-function randomQuestions() {
-    //RANDOM QUESTION = RANDOM ARRAY TAKES QUESTION ARRAY & SORTS IT.
-    //NEGITAVE NUMBER = SORTED A CERTAIN WAY.
-    //POSITIVE NUMBER = SORTED ANOTHER WAY.
-    //RANDOM NUMBER = BELOW 0 OR ABOVE 0 USE math.random() BETWEEN 1 - 0.
-    //SUBTRACT .5 PROVIDES A NUMBER >0 OR <0 CREATING A RANDOM ARRAY.
-    randomQuestion = questions.sort(() => Math.random() - .5);
-
-    //QUESTION INDEX SET TO 0 INORDER TO BEGIN ON FIRST QUESTION IN RANDOM QUESTION ARRAY
-    currentQuestionIndex = 0;
-    
-    questionIndex = currentQuestionIndex;
-    
-    //FUNCTION TO LOAD QUESTIONS,OPTIONS, AND QUESTIONS NUMBER
-    load();
-    
-}
-
-///////////////////////////////////////////////////////////////////////////
-//LOADS & DISPLAYS QUESTION NUMBER, QUESTIONS, OPTIONS AND INCREMENTS QUESTION
 ///////////////////////////////////////////////////////////////////////////
 
-//DISPLAYS TOTAL NUMBER OF QUESTIONS IN QUESTIONS ARRAY IN QUIZ HEADER
-totalQuestionsEl.innerHTML = questions.length;
 
-function load() {
-    
-    //DISPLAYS CURRENT QUESTION NUMBER IN THE QUIZ HEADER
-    questionNumberEl.innerHTML = index + 1;
-    
-    //DISPLAYS THE QUESTION IN HTML <H1> = QUESTIONS ARRAY[QUESTION INDEX NUMBER].QUESTION
-    questionEl.innerHTML = questions[questionIndex].q;
-
-    //DISPLAYS QUESTION OPTION 1 IN HTML <DIV> = QUESTIONS ARRAY[QUESTION INDEX NUMBER].OPTION 0
-    option1.innerHTML = questions[questionIndex].options[0];
-    
-    //DISPLAYS QUESTION OPTION 2 IN HTML <DIV> = QUESTIONS ARRAY[QUESTION INDEX NUMBER].OPTION 1
-    option2.innerHTML = questions[questionIndex].options[1];
-
-    //DISPLAYS QUESTION OPTION 3 IN HTML <DIV> = QUESTIONS ARRAY[QUESTION INDEX NUMBER].OPTION 2
-    option3.innerHTML = questions[questionIndex].options[2];
-
-    //DISPLAYS QUESTION OPTION 4 IN HTML <DIV> = QUESTIONS ARRAY[QUESTION INDEX NUMBER].OPTION 3
-    option4.innerHTML = questions[questionIndex].options[3];
-
-    //INCREMENTS CURRENT QUESTION NUMBER IN THE QUIZ HEADER
-    index++;
-
-}
 
 ///////////////////////////////////////////////////////////////////////////
 //START QUIZ FUNCTION
 ///////////////////////////////////////////////////////////////////////////
 function startQuiz() {
-    
-    //LOAD RANDOM QUESTIONS
-    randomQuestions();
+    console.log(startQuiz);
 
     //HIDES DIRECTIONS CONTAINER & ALL DIVS IN IT
     document.getElementById("page0").style.display = "none";
-    
-    //DISPLAY QUIZ CONTAINER DIVS(SECTION 2 OF 3)
-    document.getElementById("page1").style.display = "block";
 
+    randomQuiz();
+    
     //START TIMER FUNCTION
     setTime();
 
-    //DISPLAY QUESTION & OPTIONS CONTAINER
-    document.getElementById("questionOptionsContainer").style.display = "block";
+    //DISPLAY QUIZ CONTAINER DIVS(SECTION 2 OF 3)
+    document.getElementById("page1").style.display = "block";
 
-    //DISPLAY QUESTION CONTAINER
-    document.getElementById("question-wrap").style.display = "block";
+    allowedTime = setInterval(setTime, 1000);
+}
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
 
-    allowedTime = setInterval(setTime, 1000)
+
+///////////////////////////////////////////////////////////////////////////
+//DISPLAYS QUESTION NUMBER, TOTAL QUESTION NUMBER, QUESTIONS, OPTIONS AND INCREMENTS QUESTION
+///////////////////////////////////////////////////////////////////////////
+//DISPLAYS TOTAL NUMBER OF QUESTIONS IN QUESTIONS ARRAY ON THE QUIZ HEADER(10)
+totalQuestionsEl.innerHTML = questions.length;
+function displayQuestions() {
+    console.log(displayQuestions);
+    
+    //DISPLAYS CURRENT QUESTION NUMBER ON THE QUIZ HEADER
+    questionNumberEl.innerHTML = index + 1;
+
+    //DISPLAYS THE QUESTION IN HTML <H1> = QUESTIONS ARRAY[QUESTION INDEX NUMBER].QUESTION
+    questionEl.innerText = questions[questionIndex].question;
+
+    //DISPLAYS QUESTION OPTION 1 IN HTML <DIV> = QUESTIONS ARRAY[QUESTION INDEX NUMBER].OPTION 0
+    option1.innerText = questions[questionIndex].options[0];
+    
+    //DISPLAYS QUESTION OPTION 2 IN HTML <DIV> = QUESTIONS ARRAY[QUESTION INDEX NUMBER].OPTION 1
+    option2.innerText = questions[questionIndex].options[1];
+
+    //DISPLAYS QUESTION OPTION 3 IN HTML <DIV> = QUESTIONS ARRAY[QUESTION INDEX NUMBER].OPTION 2
+    option3.innerText = questions[questionIndex].options[2];
+
+    //DISPLAYS QUESTION OPTION 4 IN HTML <DIV> = QUESTIONS ARRAY[QUESTION INDEX NUMBER].OPTION 3
+    option4.innerText = questions[questionIndex].options[3];
+
+    //INCREMENTS CURRENT QUESTION NUMBER ON THE QUIZ HEADER
+    index++;
+    
+    console.log(index);
+    console.log(options);
+    console.log({ question });
+    console.log({ options });
+    console.log(question);
+    console.log("question: ", question);
+    console.log("options: ", options);
 };
+
+console.log(index);
+console.log(options);
+console.log({ question });
+console.log({ options });
+console.log(question);
+console.log("question: ", question);
+console.log("options: ", options);
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////////////////////////
+//CREATES A RANDOM QUESTION
+///////////////////////////////////////////////////////////////////////////
+function randomQuiz() {
+    
+    console.log(randomQuiz);
+
+    //RANDOM QUESTION = TAKES A RANDOM QUESTION NUMBER FROM THE TOTAL QUESTIONS
+    randomQuestionNumber = Math.floor(Math.random() * questions.length);
+
+    //RANDOM QUESTION NUMBER EQUALS CURRENT QUESTION INDEX NUMBER
+    questionIndex = randomQuestionNumber;
+
+    displayQuestions();
+};
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+
 
 ///////////////////////////////////////////////////////////////////////////
 //TIMER STATUS
 ///////////////////////////////////////////////////////////////////////////
 function setTime() {
-    timerEl.textContent = secondsLeft;
 
     secondsLeft -= 1;
 
-    timerEl.textContent = secondsLeft;
-    if( secondsLeft <= 0 ){
-        endQuiz();
-        clearInterval(allowedTime);
-    }
-
+        //DISPLAYS SECONDS IN HTML
+        timerEl.textContent = secondsLeft;
+    
+            //IF SECONDS LEFT IS LESS THAN OR EQUAL TO -1
+            if( secondsLeft <= 0 ) {
+        
+                clearInterval(allowedTime);
+        
+            }
+    quizStatus();
+    
 };
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+
 
 ///////////////////////////////////////////////////////////////////////////
-//VALIDATION STATUS
+//USER SELECTED OPTION QUIZ VALIDATION STATUS
 ///////////////////////////////////////////////////////////////////////////
-//ONCLICK FUNCTION TO CHECK SELECTED OPTION STATUS
+
+var correct = true;
+
+var incorrect = false;
+
+//ONCLICK FUNCTION TO VALIDATE SELECTED OPTION
 function questionVal(element) {
 
-    //IF ELEMENT ID IS THE SAME AS QUESTION ANSWER
-    if(element.id == questions[questionIndex].answer) {
-    //== CONVERTS VARIABLE VALUES TO SAME TYPE BEFORE COMPARING
+    console.log(element);
+
+    //ALERT MESSAGE VARIABLE 
+    var alertMessage;
+
+    //IF ELEMENT ID IS THE SAME AS QUESTIONS[INDEX].ANSWER
+    if ( element.id == questions[questionIndex].answer ) {
+      //== CONVERTS VARIABLE VALUES TO SAME TYPE BEFORE COMPARING
+        console.log(element.id);
+    
+        console.log(correct);
+
+      //ADDS THE CORRECT COLOR GREEN TO THE BACKGROUND OF THE DIV BUTTON
         element.classList.add("correct");
 
-    }
-    
-    else {
+        answer = true;
+
+        //CORRECT ALERT MESSAGE
+        alertMessage = "Correct!";
+
+        score = highScore++;
+
+
+    } else {
+        console.log("incorrect");
+        
+        //ADDS THE INCORRECT COLOR RED TO THE BACKGROUND OF THE DIV BUTTON
         element.classList.add("incorrect");
-        secondsLeft = secondsLeft -15;
-        score = score -10;
-    
+
+        //DEDUCTS -15 SECONDS FROM THE CURRENT SECONDS LEFT (INCORRECT OPTION PENALTY)
+        secondsLeft = secondsLeft - 15;
+
+        //DEDUCTS -15 POINTS FROM THE CURRENT SCORE
+        highScore = score - 15;
+
+        answer = false;
+
+        //INCORRECT ALERT MESSAGE
+        alertMessage = "Incorrect!";
+
     }
 
-    clearQuestion();
-    nxtQuestion();
-    endQuiz();
+    //DISABLES OPTIONS ONCE ONCE ONE OPTION IS SELECTED
+    disable();
+
+    //DISPLAYS ALERT MESSAGE BASED ON USER SELECTED OPTION 
+    document.getElementById("message").innerHTML = alertMessage;
+    
+    //CHECK QUIZ STATUS
+    quizStatus();
+
+    console.log("answer: ", answer);
+    console.log("options: ", options);
+};
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+
+
+
+///////////////////////////////////////////////////////////////////////////
+//DISABLE ALL OPTIONS ONCE ONE OPTION IS SELECTED & SHOW CORRECT ANSWER VALIDATION BACKGROUND COLOR
+///////////////////////////////////////////////////////////////////////////
+function disable() {
+
+    for(let option = 0; option < options.length; option++) {
+        
+        //ADD THE DISABLE CLASS TO OPTIONS ONCE SELECTED
+        options[option].classList.add("disable");
+        
+        //SHOW THE CORRECT OPTION IF INCORRECT ANSWER SELECTED
+        if(options[option].id == questions[index].answer) {
+            
+            //
+            options[option].classList.add("correct");
+        }
+
+    };
+
 
 };
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
 
 ///////////////////////////////////////////////////////////////////////////
-//SAVE USER ANSWERS FUNCTION 
+//CLEAR QUESTION & SET OF OPTIONS IN PREPERATION FOR NEXT QUESTION & SET OF OPTIONS
 ///////////////////////////////////////////////////////////////////////////
-function userAnswer() {
+function clearQuestion() {
+    
+    //CLEARS QUESTION
+    questionEl.innerHTML = "";
+    
+    //CLEARS OPTION 1 BUTTON
+    option1.innerHTML = "";
+    
+    //CLEARS OPTION 2 BUTTON
+    option2.innerHTML = "";
+    
+    //CLEARS OPTION 3 BUTTON
+    option3.innerHTML = "";
+    
+    //CLEARS OPTION 4 BUTTON
+    option4.innerHTML = "";
 
+    clearValStatus(element);
+
+    enable();
 }
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
 
 ///////////////////////////////////////////////////////////////////////////
-//DISPLAY NEXT QUESTION
-///////////////////////////////////////////////////////////////////////////
-function nxtQuestion() {
-
-}
-
-///////////////////////////////////////////////////////////////////////////
-//CLEAR VALIDATION BACKGROUND FOR NEXT QUESTIONS
+//CLEAR VALIDATION BACKGROUND COLOR FOR OPTIONS IN PREPERATION FOR NEXT QUESTION & SET OF OPTIONS
 ///////////////////////////////////////////////////////////////////////////
 function clearValStatus(element){
+    
     element.classList.remove("correct");
+    
     element.classList.remove("incorrect");
     
 }
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////
-//CLEAR QUESTION AND OPTIONS IN PREPERATION FOR NEXT QUESTION AND OPTIONS
+//ENABLE OPTIONS IN PREPERATION FOR NEXT QUESTION & SET OF OPTIONS
 ///////////////////////////////////////////////////////////////////////////
-function clearQuestion() {
-    clearValStatus();
-    questionEl.innerHTML = "";
-    option1.innerHTML = "";
-    option2.innerHTML = "";
-    option3.innerHTML = "";
-    option4.innerHTML = "";
-}
+function enable() {
+
+    for(let option = 0; option < options.length; option++) {
+        
+        options[option].classList.remove("disable");
+    };
+
+};
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
 
 ///////////////////////////////////////////////////////////////////////////
-//CHECK QUIZ STATUS IF CONDITIONS ARE MET END THE QUIZ 
+//CHECKS QUIZ STATUS 
 ///////////////////////////////////////////////////////////////////////////
-function endQuiz() {
-    //IF QUESTIONS INDEX  IS GREATER THAN OR EQUAL TO TOTAL QUESTIONS OR TIMER IS LESS THAN OR EQUAL TO 0
-    if(questionNumberEl >= totalQuestionsEl || secondsLeft >= 0){
+//parsing question number
+//var currentQuestionIndex = parseInt(questionIndex.innerText).value;
+
+//use parse int to solve the number solution
+//var questionNumberValue = parseInt(questionIndex.innerText).value;
+function quizStatus() {
+
+    //IF QUESTIONS INDEX IS GREATER THAN OR EQUAL CURRENT Q OR TIMER IS LESS THAN OR EQUAL TO 0
+    if ( questionIndex >= questions.length || secondsLeft <= 0) {
         
         //HIDES QUIZ CONTAINER DIVS(SECTION 2 OF 3)
         document.getElementById("page1").style.display = "none";
@@ -290,7 +396,12 @@ function endQuiz() {
         //DISPLAYS RESULTS CONTAINER DIVS(SECTION 3 OF 3)
         document.getElementById("page2").style.display = "block";
     
+        //
+        document.querySelector(".resultScore").innerHTML = secondsLeft;
+
         //CLEARS TIMER
         clearInterval(allowedTime);
-    }
-}
+    };
+};
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////

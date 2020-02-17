@@ -16,11 +16,11 @@
     <!-- CSS LINK-->
     <link rel="stylesheet" type="text/css" href="style.css">
 
-    <!-- GOOGLE FONTS LINK-->
-    <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree&display=swap" rel="stylesheet">
-
     <!-- BOOTSTRAP LINK-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <!-- GOOGLE FONTS LINK-->
+    <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree&display=swap" rel="stylesheet">
 </head>
 
 <!---------------- BODY ------------------------------------------->
@@ -33,7 +33,7 @@
         <nav class="navbar navbar-light bg-light">
 
             <!-------- VEIW HIGHSCORE ------->
-            <a class="navbar-brand" href="#" style="color:#e73c7e">View Highscore</a>
+            <div class="navbar-brand"  type="button" onclick="viewScorePage()" style="color:#e73c7e">View Highscore</div>
 
             <!-- NAVBAR TEXT -->
             <span class="navbar-text">
@@ -51,8 +51,8 @@
 
                     </div>
 
-
                 </div>
+                <!-- ./ TIMER -->
 
             </span>
 
@@ -122,19 +122,12 @@
                     <div class="row">
             
                         <!-- COLUMN -->
-                        <div class="col-md-12 d-flex flex-wrap pt-3 pb-2 mb-3">
-                        
-                            <!-- QUIZ HEADER -->
-                            <div class="quizHeader">
+                        <div class="col-md-11 d-flex flex-wrap pt-3 pb-2 mb-3">
 
-                                <h5 style="color: #e73c7e;">Question <span class="questionNumber" style="color: #e73c7e;"></span> of <span class="totalQuestions" style="color: #e73c7e;"></span> </h5>
-                    
-                            </div>
-                            <!-- ./ QUIZ HEADER -->
+                            <h5 style="color: #e73c7e;">Question <span class="questionNumber" style="color: #e73c7e;"></span> of <span class="totalQuestions" style="color: #e73c7e;"></span> </h5>
                     
                         </div>
-                        <!-- ./ COLUMN -->
-        
+                    
                     </div>
                     <!-- ./ ROW-->
                     
@@ -144,14 +137,8 @@
                         <!-- COLUMN -->
                         <div class="col-md-12 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
             
-                            <!-- QUESTION CONTAINER -->
-                            <div class="questionWrapper" id="question-wrap">
-            
-                                <!-- QUESTION -->
-                                <h1 class="question" id="question" style="color:#23a6d5"></h1>
-            
-                            </div>
-                            <!-- ./ QUESTION CONTAINER -->
+                            <!-- QUESTION -->
+                            <h1 class="question" id="question" style="color:#23a6d5" ></h1>
             
                         </div>
                         <!-- ./ COLUMN -->
@@ -159,52 +146,21 @@
                     </div>
                     <!-- ./ ROW-->
             
-<!-------  CHOICES CONTAINER  ---------------->
-                    <div class="optionsContainer" id="optionsContainer">
-            
-                        <!-- ROW -->
-                        <div class="row justify-content-center">
-<!-- BUTTON COLUMN 1  -->
-                            <!-- COLUMN -->
-                            <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
-            
-                                <!-- BUTTON 0 -->
-                                <div class="option0" id="0" onclick="questionVal(this)" data-type="1"></div>
-            
-                            </div>
-                            <!-- ./ COLUMN    -->
-<!-- BUTTON COLUMN 2  -->
-                            <!-- COLUMN -->
-                            <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
-            
-                                <!-- BUTTON 1  -->
-                                <div class="option1" id="1" onclick="questionVal(this)" data-type="2"></div>
-            
-                            </div>
-                            <!-- ./ COLUMN -->
-
-<!-- BUTTON COLUMN 3  -->   <div class="w-100"></div>
-                            
-                            <!-- COLUMN -->
-                            <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
-            
-                                <!-- BUTTON 2 -->
-                                <div class="option2" id="2" onclick="questionVal(this)" data-type="3"></div>
-            
-                            </div>
-                            <!-- ./ COLUMN -->
-<!-- BUTTON COLUMN 4  -->
-                            <!-- COLUMN -->
-                            <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
-            
-                                <!-- BUTTON 3 -->
-                                <div class="option3" id="3" onclick="questionVal(this)" data-type="4"></div>
-            
-                            </div>
-                            <!-- ./ COLUMN -->
-            
-                        </div>
-                        <!-- ./ OPTIONS ROW -->
+<!-------  OPTIONS CONTAINER  ---------------->
+                    <div class="options" click="nextQuestion()">
+            <!-- TRY CHANGING ON CLICK TO OPTIONS AND ADDING NEXT ON BUTTONS TO TRIGGER NEXT QUESTION -->
+                        
+                        <!-- BUTTON 1 -->
+                        <div type="text" name="option1Text" class="option1" id="0" onclick="questionVal(this)" data-number="0"></div>      
+                        
+                        <!-- BUTTON 2  -->
+                        <div name="option2Text" class="option2" id="1" onclick="questionVal(this)" data-number="1"></div>
+                        
+                        <!-- BUTTON 3 -->
+                        <div name="option3Text" class="option3" id="2" onclick="questionVal(this)" data-number="2"></div>
+                        
+                        <!-- BUTTON 4 -->
+                        <div name="option4Text" class="option4" id="3" onclick="questionVal(this)" data-number="3"></div>
                     
                     </div>
                     <!-- ./ QUESTION && OPTIONS CONTAINER  -->
@@ -216,9 +172,9 @@
                         <div class="row">
 
                             <!-- COLUMN -->
-                            <div class="col-md-12 justify-content-center border-top flex-wrap pt-3 pb-2 mb-3">
+                            <div class="col-md-12 justify-content-center flex-wrap pt-3 pb-2 mb-3">
 
-                                <div class="questionVal" id="message"></div>
+                                <div id="message"></div>
 
                             </div>
                             <!-- ./ COLUMN -->
@@ -227,7 +183,7 @@
                         <!-- ./ ROW -->
 
                     </div>
-                    <!-- QUESTION FOOTER  -->
+                    <!-- ./ QUESTION FOOTER  -->
 
                 </div>
                 <!-- ./ QUESTIONS & OPTIONS CONTAINER -->
@@ -246,7 +202,7 @@
                     <div class="col-md-12 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
 
                         <!-- RESULTS TITLE -->
-                        <h2>Results</h2>
+                        <h2 style="color: #e73c7e;">Results</h2>
 
                     </div>
                     <!-- ./ COLUMN -->
@@ -260,8 +216,16 @@
                     <!-- COLUMN -->
                     <div class="col-md-12 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
 
-                        <!-- PARAGRAPH -->
-                        <p>You got <span class="numCorrectAnswers"></span> out of <span class="numQuestions"></span> questions correct!</p>
+                        
+                        <div class="userSelectedResults">
+                            
+                            <div class=""></div>
+                            
+                            <div class=""></div>
+                            
+                            <div></div>
+                        
+                        </div>
 
                     </div>
                     <!-- ./ COLUMN -->
@@ -275,15 +239,7 @@
                     <!-- COLUMN -->
                     <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
 
-                        <p>Enter initials:</p>
-
-                    </div>
-                    <!-- ./ COLUMN -->
-
-                    <!-- COLUMN -->
-                    <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
-                    
-                        <input type="text" id="initial-input"/>
+                        <p style="color: #e73c7e;">Enter initials:<input type="text" id="initial-input" minlength="1" maxlength="3"/></p>
 
                     </div>
                     <!-- ./ COLUMN -->
@@ -298,7 +254,7 @@
                     <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
 
                         <!-- SUBMIT HIGH SCORE BUTTON -->
-                        <button type="button" class="btn" id="submit-button" onclick="submitQuiz()">Submit</button>
+                        <button type="button" class="save-button" id="save-button" click="save-button">Save</button>
 
                     </div>
                     <!-- ./ COLUMN -->
@@ -307,7 +263,7 @@
                     <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
 
                         <!-- RESTART QUIZ BUTTON -->
-                        <button type="button" class="btn left" id="restart-button" onclick="newQuiz()">Restart
+                        <button type="button" class="restart-button" id="restart-button" click="restart-button">Restart
                         </button>
 
                     </div>
@@ -318,6 +274,84 @@
 
             </div>
             <!-- ./ RESULTS CONTAINER SECTION 3 OF 3 -->
+
+<!----------------- HIGH SCORE PAGE -------------------------->
+            
+            <div class="highScore" id="page3">
+
+                <!-- ROW -->
+                <div class="row">
+
+                    <!-- COLUMN -->
+                    <div class="col-md-12 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
+
+                        <!-- RESULTS TITLE -->
+                        <h2 style="color: #e73c7e;">High Scores</h2>
+
+                    </div>
+                    <!-- ./ COLUMN -->
+
+                </div>
+                <!-- ./ ROW -->
+
+                <!-- FINAL SCORE CONTAINER -->
+                <div class="resultScore">
+                    
+                    <!-- ROW -->
+                    <div class="row">
+                
+                        <!-- COLUMN -->
+                        <div class="col-md-12 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
+                
+                                        
+                        <div class="highScoreList">
+                                            
+                            <div class=""></div>
+                                            
+                            <div class=""></div>
+                                            
+                            <div></div>
+                                        
+                        </div>
+
+                    </div>
+                    <!-- ./ COLUMN -->
+                
+                </div>
+                <!-- ./ ROW -->
+
+                <!-- ROW -->
+                <div class="row justify-content-center">
+                
+                    <!-- COLUMN -->
+                    <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
+
+                        <!-- LINK TO GO BACK TO START QUIZ -->
+                        <a href="index.html">
+                            
+                            <!-- SUBMIT HIGH SCORE BUTTON -->
+                            <button type="button" class="return-button" id="return-button" click="return-button">Back</button>
+                        
+                        </a>
+
+                    </div>
+                    <!-- ./ COLUMN -->
+
+                    <!-- COLUMN -->
+                    <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
+
+                        <!-- RESTART QUIZ BUTTON -->
+                        <button type="button" class="clearScoreButton" id="clearScoreButton" click="clearScoreButton">Clear High Score
+                        </button>
+
+                    </div>
+                    <!-- ./ COLUMN -->
+                
+                </div>
+                <!-- ./ ROW -->
+
+            </div>
+<!------------ ./ HIGH SCORE PAGE ---------------------->
 
         </div>
         <!-- ./ BACKGROUND -->

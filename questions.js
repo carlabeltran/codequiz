@@ -1,9 +1,10 @@
-// QUESTION(ARRAY) VARIABLE IS STORING ALL THE QUESTIONS(OBJECT), OPTIONS(OBJECT), AND ANSWERS(OBJECT)
+console.log("QUESTIONS.JS IS LINKED!")
 
+// QUESTION(ARRAY) VARIABLE IS STORING ALL THE QUESTIONS(OBJECT), OPTIONS(OBJECT), AND ANSWERS(OBJECT)
 var questions = [
     
     {
-    q : "Commonly used data types DO NOT include:",
+    question : "Commonly used data types DO NOT include?",
     
     options : [
         "strings",
@@ -18,7 +19,7 @@ var questions = [
     
     {
     
-    q : "The condition in an if / else statement is enclosed within ____.",
+    question : "The condition in an if / else statement is enclosed within ____.?",
     
     options : [
         "quotes",
@@ -33,13 +34,13 @@ var questions = [
     
     {
     
-    q : "Inside which HTML element do we put the JavaScript?",
+    question : "Inside which HTML element do we put the JavaScript?",
     
     options : [
-        "<js>",
-        "<javascript>",
-        "<scripting>",
-        "<script>"
+        "js",
+        "javascript",
+        "scripting",
+        "script"
     ],
     
     answer : 3
@@ -48,7 +49,7 @@ var questions = [
     
     {
     
-    q : "Which event occurs when the user clicks on an HTML element?",
+    question : "Which event occurs when the user clicks on an HTML element?",
     
     options : [
         "onmouseclick",
@@ -63,7 +64,7 @@ var questions = [
     
     {
     
-    q : "How do you declare a Javascript variable?",
+    question : "How do you declare a Javascript variable?",
     
     options : [
         "variable carName",
@@ -78,7 +79,7 @@ var questions = [
     
     {
     
-    q : "How do you round the number 7.25, to the nearest integer?",
+    question : "How do you round the number 7.25, to the nearest integer?",
     
     options : [
         "Math.round(7.25)",
@@ -93,7 +94,7 @@ var questions = [
     
     {
     
-    q : "What does CSS stand for?",
+    question : "What does CSS stand for?",
     
     options: [
         "Computer Style Sheets",
@@ -108,7 +109,7 @@ var questions = [
     
     {
     
-    q : "Which HTML attribute is used to define inline styles?",
+    question : "Which HTML attribute is used to define inline styles?",
     
     options : [
         "class",
@@ -123,7 +124,7 @@ var questions = [
     
     {
     
-    q : "Which CSS property is used to change the text color of an element?",
+    question : "Which CSS property is used to change the text color of an element?",
     
     options : [
         "text-color",
@@ -138,7 +139,7 @@ var questions = [
     
     {
     
-    q : "Which CSS property controls the text size?",
+    question : "Which CSS property controls the text size?",
     
     options : [
         "font-style",
@@ -151,3 +152,26 @@ var questions = [
     
     }
 ];
+
+//var questions IS AN ARRAY. Instead of storing flat strings/numbers, it stores objects. Each object has the following properties:
+
+//ARRAYS START WITH 0
+
+//questions – [String] THE QUESTION.
+//options – [Array] THE AVALIABLE OPTIONS.
+//answer – [Integer] THE CORRECT ANSWER.
+
+//CONVERTING OBJECT BACK INTO A STRING 
+let questions_serialized = JSON.stringify(questions);
+console.log(questions_serialized);
+
+//SET NEW SUBMISSION
+localStorage.setItem("questions", questions_serialized);
+console.log(localStorage);
+
+// CONVERTING STRING BACK INTO AN OBJECT
+let questions_deserialized = JSON.parse(localStorage.getItem("questions"));
+console.log(questions_deserialized);
+
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////

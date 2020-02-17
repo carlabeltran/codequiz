@@ -36,23 +36,20 @@ body, .container-fluid  {
   height: 100%;
 }
 
-/******** NAVBAR ******************************************/
-
-nav .navbar {
+/**************** NAVBAR ******************************************/
+nav.navbar {
   background-color: #fff;
   width: 100%;
   margin: auto;
   padding: auto;
   height: auto;
 }
-
 .navbar-brand {
   color: #e73c7e;
   font-family: 'Bai Jamjuree', sans-serif;
 }
 
-/******** TIMER ***********************************************/
-
+/**************** TIMER ******************************************/
 #timer {
   position: relative;
   top: 0;
@@ -65,7 +62,6 @@ nav .navbar {
   padding-top: 0.25em;
   padding-bottom: 0.25em;
 }
-
 #smalltext {
 font-family: 'Bai Jamjuree', sans-serif;
 text-align: center;
@@ -76,7 +72,6 @@ color: #e73c7e;
 padding-left: 10px;
 padding-right: 10px;
 }
-
 #ss {
   font-size: 22px;
   color: #e73c7e;
@@ -86,8 +81,7 @@ padding-right: 10px;
   padding-right: 10px;
 }
 
-/******** MAIN CONTAINER *******************************************/
-
+/*************** MAIN CONTAINER *******************************************/
 .container-fluid .demo {
     padding: 0 auto;
     margin: 0 auto;
@@ -95,14 +89,12 @@ padding-right: 10px;
     height: auto;
 }
 
-/****** DIRECTIONS PAGE SECTION 1 OF 3 *************************/
-
+/**************** DIRECTIONS PAGE SECTION 1 OF 3 *************************/
 #page0 {
     display: block;
 }
 
-/**** CODE QUIZ TITLE  ****/
-
+/** CODE QUIZ TITLE  **/
 .title {
   font-size: 150px;
   align-content: center;
@@ -114,8 +106,7 @@ padding-right: 10px;
   max-width: 960px;
 }
 
-/*** INSTRUCTIONS FOR CODE QUIZ GAME  ****/
-
+/** INSTRUCTIONS FOR CODE QUIZ  ***/
 p {
   font-size: 20px;
   font-weight: bold;
@@ -128,8 +119,7 @@ p {
   letter-spacing: 0.03em;
 }
 
-/* START BUTTON */
-
+/** START BUTTON **/
 #start-button {
   border: 4px solid #fff;
 	background-color: #fff;
@@ -147,12 +137,10 @@ p {
   letter-spacing: 0.03em;
 }
 
-/************ QUIZ SECTION 2 OF 3 *******************************/
-
+/************ QUIZ PAGE SECTION 2 OF 3 *******************************/
 #page1 {
   display: none;
 }
-
 .quizPage {
   background-color: #fff;
   margin: 50px 50px 50px 50px;
@@ -162,22 +150,13 @@ p {
 }
 
 /******** QUESTION & OPTIONS CONTAINER **************************/
-
 .question #questionOptionsContainer {
   background-color: #fff;
   margin: 20px 20px 20px 20px;
   padding: 20px 20px 20px 20px;
 }
 
-/* QUESTION CONTAINER */
-.questionWrapper {
-  background-color: white;
-  font-family: 'Bai Jamjuree', sans-serif;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-/* QUESTION (H1) */
+/*********** QUESTION CONTAINER  **************************************/
 #question {
   font-family: 'Bai Jamjuree', sans-serif;
   word-wrap: break-word;
@@ -188,46 +167,44 @@ p {
 }
 
 /*********** OPTIONS CONTAINER  **************************************/
-
-.option0, .option1, .option2, .option3 {
+.options div {
+  background-color: #fff;
+  align-items: center;
+  cursor: pointer; 
+  margin-bottom: 10px;
   font-family: 'Bai Jamjuree', sans-serif;
-  background-color:  #fff;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
   color: #23a6d5;
   letter-spacing: 0.03em;
   font-size: 25px;
-  border-radius: 5px;
   padding: 14px 34px;
   text-align: center;
   font-weight: bolder;
   border: 3px solid #23a6d5;
-  width: 250px;
-  height: 100px;
-  align-items: center;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
+  display: grid;
 }
-
-.option0, .option1, .option2, .option3 { 
-cursor: pointer; 
-}
-
-.option0, .option1, .option2, .option3 {
-  outline: 0;
-}
-
-.correct{
+.options div.correct {
   background-color: #23d5ab;
   color: #fff;
   font-weight: bolder;
 }
-
-.incorrect {
+.options div.incorrect {
   background-color: #e73c7e;
   color: #fff;
   font-weight: bolder;
 } 
+.options div.disable {
+  pointer-events: none;
+}
+#next-button{
+  border: transparent;
+  margin: 0;
+  padding: 0;
+  background-color: #23a6d5;
+}
 
 /********** QUESTION OPTIONS VALIDATION FOOTER   **************************/
-
 .container-footer {
   animation: slide_down_and_fade 0.50s cubic-bezier(.15, .07, .20, .97)both;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
@@ -241,8 +218,11 @@ cursor: pointer;
   border-width: 5px;
 }
 
-/******************* RESULTS SECTION 3 OF 3 ***************************/
+#message {
 
+}
+
+/******************* RESULTS SECTION 3 OF 3 ***************************/
 #page2 {
   display: none;
 }
@@ -253,7 +233,6 @@ cursor: pointer;
   padding: 50px 50px 50px 50px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
   border: 5px solid #23d5ab;
-
 }
 
 #submit-button {
@@ -289,6 +268,70 @@ cursor: pointer;
   font-weight: bolder;
   letter-spacing: 0.03em;
 }
+
+/*********** HIGH SCORE PAGE CONTAINER  **************************************/
+/* PAGE 3 */
+#page3 {
+  display: none;
+}
+
+/**  HIGH SCORE CONTAINER  **/
+.highScore {
+  background-color: #fff;
+  margin: 50px 50px 50px 50px;
+  padding: 50px 50px 50px 50px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  border: 5px solid #23d5ab;
+}
+
+/** FINAL SCORE CONTAINER **/
+.finalScore {
+
+}
+
+/** HIGH SCORE LISTS **/
+.highScoreList {
+
+}
+
+/** BACK BUTTON  **/
+.return-button {
+  border: 4px solid #e73c7e;
+	background-color: #e73c7e;
+	border-radius: 25px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
+	color: #fff;
+	font-size: 30px;
+	line-height: 22px;
+	text-align: center;
+	cursor: pointer;
+  align-content: center;
+  padding: 20px 34px;
+  font-family: 'Bai Jamjuree', sans-serif;
+  font-weight: bolder;
+  letter-spacing: 0.03em;
+}
+
+/** CLEAR HIGH SCORE BUTTON  **/
+.clearScoreButton {
+  border: 4px solid #23a6d5;
+	background-color: #23a6d5;
+	border-radius: 25px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
+	color: #fff;
+	font-size: 30px;
+	line-height: 22px;
+	text-align: center;
+	cursor: pointer;
+  align-content: center;
+  padding: 20px 34px;
+  font-family: 'Bai Jamjuree', sans-serif;
+  font-weight: bolder;
+  letter-spacing: 0.03em;
+}
+
+
+
 
 /********** ANIMATIONS ***********/
 @keyframes slide_down_and_fade {
