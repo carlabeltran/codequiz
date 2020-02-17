@@ -243,21 +243,21 @@ function questionVal(element) {
 
     //IF ELEMENT ID IS THE SAME AS QUESTIONS[INDEX].ANSWER
     if ( element.id == questions[questionIndex].answer ) {
-      //== CONVERTS VARIABLE VALUES TO SAME TYPE BEFORE COMPARING
-        console.log(element.id);
+    //== CONVERTS VARIABLE VALUES TO SAME TYPE BEFORE COMPARING
+        
+        //console.log(element.id);
     
         console.log(correct);
 
-      //ADDS THE CORRECT COLOR GREEN TO THE BACKGROUND OF THE DIV BUTTON
+        //ADDS THE CORRECT COLOR GREEN TO THE BACKGROUND OF THE DIV BUTTON
         element.classList.add("correct");
-
-        answer = true;
 
         //CORRECT ALERT MESSAGE
         alertMessage = "Correct!";
 
         score = highScore++;
 
+        answer = true;
 
     } else {
         console.log("incorrect");
@@ -271,12 +271,12 @@ function questionVal(element) {
         //DEDUCTS -15 POINTS FROM THE CURRENT SCORE
         highScore = score - 15;
 
-        answer = false;
-
         //INCORRECT ALERT MESSAGE
         alertMessage = "Incorrect!";
 
-    }
+        answer = false;
+
+    };
 
     //DISABLES OPTIONS ONCE ONCE ONE OPTION IS SELECTED
     disable();
@@ -301,20 +301,16 @@ function questionVal(element) {
 ///////////////////////////////////////////////////////////////////////////
 function disable() {
 
-    for(let option = 0; option < options.length; option++) {
+    for ( let optionsId = 0; optionsId < options.length; optionsId++ ) {
+    
+        options[optionsId].classList.add("disable");
+
+        //SHOW THE CORRECT OPTION
+        if (options[optionsId].id == questions[questionIndex].answer) {
         
-        //ADD THE DISABLE CLASS TO OPTIONS ONCE SELECTED
-        options[option].classList.add("disable");
-        
-        //SHOW THE CORRECT OPTION IF INCORRECT ANSWER SELECTED
-        if(options[option].id == questions[index].answer) {
-            
-            //
-            options[option].classList.add("correct");
+            options[optionsId].classList.add("correct");
         }
-
     };
-
 
 };
 ///////////////////////////////////////////////////////////////////////////
@@ -330,16 +326,16 @@ function clearQuestion() {
     questionEl.innerHTML = "";
     
     //CLEARS OPTION 1 BUTTON
-    option1.innerHTML = "";
+    options[0].innerHTML = "";
     
     //CLEARS OPTION 2 BUTTON
-    option2.innerHTML = "";
+    options[1].innerHTML = "";
     
     //CLEARS OPTION 3 BUTTON
-    option3.innerHTML = "";
+    options[2].innerHTML = "";
     
     //CLEARS OPTION 4 BUTTON
-    option4.innerHTML = "";
+    options[3].innerHTML = "";
 
     clearValStatus(element);
 
