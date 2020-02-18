@@ -27,10 +27,10 @@ let randomQuestion, currentQuestionIndex;
 var timerEl = document.getElementById("ss");
 
 //QUIZ CONTAINER
-var quizEL = document.getElementById("page1");
+var quizEl = document.getElementById("page1");
 
 //QUESTIONS & OPTIONS CONTAINER 
-var quizContainerEL = document.getElementById("questionOptionsContainer");
+var quizContainerEl = document.getElementById("questionOptionsContainer");
 
 //////////////////////////QUIZ HEADER///////////////////////////////////////
 //CURRENT QUESTION NUMBER
@@ -61,7 +61,7 @@ var option4 = document.querySelector(".option4");
 
 ////////////////////////QUIZ FOOTER/////////////////////////////////////////
 //QUESTION VALIDATION
-var message = document.querySelector(".questionVal");
+var message = document.querySelector(".alert");
 
 //////////////////////RESULTS CONTAINER (SECTION 3 OF 3)/////////////////////
 //RESULTS CONTAINER
@@ -77,17 +77,17 @@ var highScore = 0;
 var userResults = document.getElementById("userSelectedResults");
 
 //SAVE INITIALS BUTTON
-var saveButton = document.getElementById("save-button");
+var saveButton = document.getElementById("submit-button");
 
 //RESTART QUIZ BUTTON
 var restartButton = document.getElementById("restart-button");
 
 ///////////////////   HIGH SCORE PAGE CONTAINER   //////////////////////////
 //HIGH SCORE PAGE
-var highScoreEL = document.getElementById("page3");
+var highScoreEl = document.getElementById("page3");
 
 //HIGH SCORE LIST
-var highScoreListEL = document.querySelector(".highScoreList");
+var highScoreListEl = document.querySelector(".highScoreList");
 
 //BACK BUTTON
 var returnButtonEl = document.getElementById("return-button");
@@ -104,6 +104,16 @@ var clearScoreButtonEl = document.getElementById("clearScoreButton");
 //START BUTTON
 startButton.addEventListener("click", startQuiz);
 console.log(startButton);
+
+//SAVE BUTTON EVENT LISTENER FOR SUBMIT QUIZ SCORE FUNCTION
+saveButton.addEventListener("click", saveScore);
+console.log(saveButton);
+
+//RESTART BUTTON EVENT LISTENER FOR START NEW QUIZ FUNCTION
+restartButton.addEventListener("click", newQuiz);
+console.log(restartButton);
+
+
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 
@@ -127,6 +137,7 @@ function startQuiz() {
     document.getElementById("page1").style.display = "block";
 
     allowedTime = setInterval(setTime, 1000);
+
 }
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
@@ -216,6 +227,7 @@ function setTime() {
         
                 clearInterval(allowedTime);
         
+                quizStatus();
             }
     quizStatus();
     
@@ -242,10 +254,10 @@ function questionVal(element) {
     var alertMessage;
 
     //IF ELEMENT ID IS THE SAME AS QUESTIONS[INDEX].ANSWER
-    if ( element.id == questions[questionIndex].answer ) {
-    //== CONVERTS VARIABLE VALUES TO SAME TYPE BEFORE COMPARING
+    if (element.id == questions[questionIndex].answer) {
+        //== CONVERTS VARIABLE VALUES TO SAME TYPE BEFORE COMPARING
         
-        //console.log(element.id);
+        console.log(element.id);
     
         console.log(correct);
 
@@ -258,8 +270,15 @@ function questionVal(element) {
         score = highScore++;
 
         answer = true;
+        
+        //DISABLES OPTIONS ONCE ONCE ONE OPTION IS SELECTED
+        disable();
+
+        //CHECK QUIZ STATUS
+        quizStatus();
 
     } else {
+
         console.log("incorrect");
         
         //ADDS THE INCORRECT COLOR RED TO THE BACKGROUND OF THE DIV BUTTON
@@ -274,25 +293,39 @@ function questionVal(element) {
         //INCORRECT ALERT MESSAGE
         alertMessage = "Incorrect!";
 
-        answer = false;
+        //DISABLES OPTIONS ONCE ONCE ONE OPTION IS SELECTED
+        disable();
 
-    };
-
-    //DISABLES OPTIONS ONCE ONCE ONE OPTION IS SELECTED
-    disable();
-
-    //DISPLAYS ALERT MESSAGE BASED ON USER SELECTED OPTION 
-    document.getElementById("message").innerHTML = alertMessage;
+        //DISPLAYS ALERT MESSAGE BASED ON USER SELECTED OPTION 
+        document.getElementById("message").innerHTML = alertMessage;
+            
+        //CHECK QUIZ STATUS
+        quizStatus();
+    }
     
-    //CHECK QUIZ STATUS
     quizStatus();
+    clearQuestion(element);
+    displayNextQuestion();
+    enable();
 
-    console.log("answer: ", answer);
-    console.log("options: ", options);
+
 };
+    console.log("options: ", options);
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
 
+///////////////////////////////////////////////////////////////////////////
+//DISABLE ALL OPTIONS ONCE ONE OPTION IS SELECTED & SHOW CORRECT ANSWER VALIDATION BACKGROUND COLOR
+///////////////////////////////////////////////////////////////////////////
+function displayNextQuestion() {
+    console.log(displayNextQuestion);
+    randomQuiz();
+    enable();
+    questionIndex++;
+}
+
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
 
 
 
@@ -301,14 +334,14 @@ function questionVal(element) {
 ///////////////////////////////////////////////////////////////////////////
 function disable() {
 
-    for ( let optionsId = 0; optionsId < options.length; optionsId++ ) {
+    for ( let optionId = 0; optionId < options.length; optionId++ ) {
     
-        options[optionsId].classList.add("disable");
+        options[optionId].classList.add("disable");
 
         //SHOW THE CORRECT OPTION
-        if (options[optionsId].id == questions[questionIndex].answer) {
+        if (options[optionId].id == questions[questionIndex].answer) {
         
-            options[optionsId].classList.add("correct");
+            options[optionId].classList.add("correct");
         }
     };
 
@@ -317,10 +350,11 @@ function disable() {
 ///////////////////////////////////////////////////////////////////////////
 
 
+
 ///////////////////////////////////////////////////////////////////////////
 //CLEAR QUESTION & SET OF OPTIONS IN PREPERATION FOR NEXT QUESTION & SET OF OPTIONS
 ///////////////////////////////////////////////////////////////////////////
-function clearQuestion() {
+function clearQuestion(element) {
     
     //CLEARS QUESTION
     questionEl.innerHTML = "";
@@ -339,7 +373,6 @@ function clearQuestion() {
 
     clearValStatus(element);
 
-    enable();
 }
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
@@ -363,9 +396,9 @@ function clearValStatus(element){
 ///////////////////////////////////////////////////////////////////////////
 function enable() {
 
-    for(let option = 0; option < options.length; option++) {
+    for (let optionId = 0; optionId < options.length; optionId++ ) {
         
-        options[option].classList.remove("disable");
+        options[optionId].classList.remove("disable");
     };
 
 };
@@ -383,8 +416,8 @@ function enable() {
 //var questionNumberValue = parseInt(questionIndex.innerText).value;
 function quizStatus() {
 
-    //IF QUESTIONS INDEX IS GREATER THAN OR EQUAL CURRENT Q OR TIMER IS LESS THAN OR EQUAL TO 0
-    if ( questionIndex >= questions.length || secondsLeft <= 0) {
+    //IF QUESTIONS INDEX IS GREATER THAN OR EQUAL CURRENT QUESTION OR TIMER IS LESS THAN OR EQUAL TO 0
+    if ( questionIndex >= 11 || secondsLeft <= 0) {
         
         //HIDES QUIZ CONTAINER DIVS(SECTION 2 OF 3)
         document.getElementById("page1").style.display = "none";
@@ -401,3 +434,11 @@ function quizStatus() {
 };
 ///////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////
+
+function saveScore() {
+    
+}
+
+function newQuiz() {
+
+}

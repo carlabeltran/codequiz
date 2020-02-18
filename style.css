@@ -183,6 +183,7 @@ p {
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
   display: grid;
+  
 }
 .options div.correct {
   background-color: #23d5ab;
@@ -197,30 +198,49 @@ p {
 .options div.disable {
   pointer-events: none;
 }
-#next-button{
-  border: transparent;
-  margin: 0;
-  padding: 0;
-  background-color: #23a6d5;
-}
 
 /********** QUESTION OPTIONS VALIDATION FOOTER   **************************/
-.container-footer {
+
+#message div.correct {
   animation: slide_down_and_fade 0.50s cubic-bezier(.15, .07, .20, .97)both;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  border: 0.09em solid #e73c7e;
-  border-radius: 4px;
+  border: 5px solid #23d5ab;
+  background-color: #fff;
+  max-width: 250px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
+	color: #23d5ab;
+  font-size: 30px;
+  font-weight: bolder;
+	line-height: 22px;
+  font-family: 'Bai Jamjuree', sans-serif;
+  letter-spacing: 0.03em;
   align-content: center;
   padding-top: 0.25em;
   padding-bottom: 0.25em;
   margin: 0 auto;
 	max-width: 250px;
-  border-width: 5px;
+  display: none;
 }
 
-#message {
-
+#message div.incorrect  {
+  animation: slide_down_and_fade 0.50s cubic-bezier(.15, .07, .20, .97)both;
+  border: 5px solid #e73c7e;
+  background-color: #fff;
+  max-width: 250px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
+	color: #e73c7e;
+  font-size: 30px;
+  font-weight: bolder;
+	line-height: 22px;
+  font-family: 'Bai Jamjuree', sans-serif;
+  letter-spacing: 0.03em;
+  align-content: center;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  margin: 0 auto;
+	max-width: 250px;
+  display: none;
 }
+
 
 /******************* RESULTS SECTION 3 OF 3 ***************************/
 #page2 {

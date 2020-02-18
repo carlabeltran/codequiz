@@ -117,74 +117,33 @@
                     
 <!-------- QUESTIONS & OPTIONS CONTAINER ---------->
                 <div class="container" id="questionOptionsContainer">
-                
-                    <!-- ROW -->
-                    <div class="row">
-            
-                        <!-- COLUMN -->
-                        <div class="col-md-11 d-flex flex-wrap pt-3 pb-2 mb-3">
 
-                            <h5 style="color: #e73c7e;">Question <span class="questionNumber" style="color: #e73c7e;"></span> of <span class="totalQuestions" style="color: #e73c7e;"></span> </h5>
+                    <h5 style="color: #e73c7e;">Question <span class="questionNumber" style="color: #e73c7e;"></span> of <span class="totalQuestions" style="color: #e73c7e;"></span> </h5>
                     
-                        </div>
-                    
-                    </div>
-                    <!-- ./ ROW-->
-                    
-                    <!-- ROW -->
-                    <div class="row">
-            
-                        <!-- COLUMN -->
-                        <div class="col-md-12 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
-            
-                            <!-- QUESTION -->
-                            <h1 class="question" id="question" style="color:#23a6d5" ></h1>
-            
-                        </div>
-                        <!-- ./ COLUMN -->
-            
-                    </div>
-                    <!-- ./ ROW-->
-            
+                    <!-- QUESTION -->
+                    <h1 class="question" id="question" style="color:#23a6d5" ></h1>
+
 <!-------  OPTIONS CONTAINER  ---------------->
                     <div class="options" click="nextQuestion()">
-            <!-- TRY CHANGING ON CLICK TO OPTIONS AND ADDING NEXT ON BUTTONS TO TRIGGER NEXT QUESTION -->
+            
+                        <!-- TRY CHANGING ON CLICK TO OPTIONS AND ADDING NEXT ON BUTTONS TO TRIGGER NEXT QUESTION -->
                         
                         <!-- BUTTON 1 -->
                         <div type="text" name="option1Text" class="option1" id="0" onclick="questionVal(this)" data-number="0"></div>      
                         
                         <!-- BUTTON 2  -->
-                        <div name="option2Text" class="option2" id="1" onclick="questionVal(this)" data-number="1"></div>
+                        <div type="text" name="option2Text" class="option2" id="1" onclick="questionVal(this)" data-number="1"></div>
                         
                         <!-- BUTTON 3 -->
-                        <div name="option3Text" class="option3" id="2" onclick="questionVal(this)" data-number="2"></div>
+                        <div type="text" name="option3Text" class="option3" id="2" onclick="questionVal(this)" data-number="2"></div>
                         
                         <!-- BUTTON 4 -->
-                        <div name="option4Text" class="option4" id="3" onclick="questionVal(this)" data-number="3"></div>
+                        <div type="text" name="option4Text" class="option4" id="3" onclick="questionVal(this)" data-number="3"></div>
                     
                     </div>
-                    <!-- ./ QUESTION && OPTIONS CONTAINER  -->
-
                     <!-- QUESTION OPTION VALIDATION FOOTER -->
-                    <div class="question-footer" id="alert">
-
-                        <!-- ROW -->
-                        <div class="row">
-
-                            <!-- COLUMN -->
-                            <div class="col-md-12 justify-content-center flex-wrap pt-3 pb-2 mb-3">
-
-                                <div id="message"></div>
-
-                            </div>
-                            <!-- ./ COLUMN -->
-
-                        </div>
-                        <!-- ./ ROW -->
-
-                    </div>
-                    <!-- ./ QUESTION FOOTER  -->
-
+                    <div id="message"></div>
+                        
                 </div>
                 <!-- ./ QUESTIONS & OPTIONS CONTAINER -->
                 
@@ -254,7 +213,7 @@
                     <div class="col-8 col-sm-6 d-flex justify-content-center flex-wrap align-items-center pt-3 pb-2 mb-3">
 
                         <!-- SUBMIT HIGH SCORE BUTTON -->
-                        <button type="button" class="save-button" id="save-button" click="save-button">Save</button>
+                        <button type="button" class="submit-button" id="submit-button" click="submit-button">Save</button>
 
                     </div>
                     <!-- ./ COLUMN -->
